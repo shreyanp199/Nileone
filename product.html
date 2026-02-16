@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Details</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<h1 id="product-name"></h1>
+<p id="product-price"></p>
+
+<button onclick="addToCart(productName, productPrice)">Add to Cart</button>
+
+<script>
+let params = new URLSearchParams(window.location.search);
+let productName = params.get("name");
+let productPrice = parseInt(params.get("price"));
+
+document.getElementById("product-name").innerText = productName;
+document.getElementById("product-price").innerText = "₹" + productPrice;
+</script>
+
+</body>
+</html>
