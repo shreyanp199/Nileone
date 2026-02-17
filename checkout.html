@@ -4,14 +4,23 @@
 <title>Checkout</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Checkout</h1>
+<header class="navbar">
+<div class="logo">NileOne</div>
+<a href="index.html">Home</a>
+</header>
 
-<form onsubmit="alert('Payment Successful! (Demo)'); return false;">
+<h1 style="text-align:center;">Checkout</h1>
+
+<form style="max-width:400px;margin:20px auto;"
+onsubmit="alert('Payment Successful (Demo)'); localStorage.removeItem('cart'); return false;">
+
 <input type="text" placeholder="Full Name" required><br><br>
 <input type="text" placeholder="Address" required><br><br>
 <input type="text" placeholder="Card Number" required><br><br>
+
 <button type="submit">Pay Now</button>
 </form>
 
