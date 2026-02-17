@@ -5,17 +5,25 @@
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
 </head>
+
 <body onload="loadCart()">
 
-<h1>Your Cart</h1>
+<header class="navbar">
+<div class="logo">NileOne</div>
+<a href="index.html">Home</a>
+</header>
 
-<div id="cart-items"></div>
+<h1 style="text-align:center;">Your Cart</h1>
 
-<h2>Total: ₹<span id="total-price">0</span></h2>
+<div id="cart-items" style="padding:20px;"></div>
 
+<h2 style="text-align:center;">Total: ₹<span id="total-price">0</span></h2>
+
+<div style="text-align:center;">
 <a href="checkout.html">
 <button>Proceed to Checkout</button>
 </a>
+</div>
 
 </body>
 </html>
