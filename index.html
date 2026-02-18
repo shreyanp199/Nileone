@@ -1,289 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
+<title>NileOne - Shop Smart</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NileOne Store</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
+
+<style>
+body { font-family: Arial; margin:0; background:#f3f3f3; }
+
+.navbar {
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#131921;
+color:white;
+padding:10px 20px;
+}
+
+.navbar a { color:white; margin:0 10px; text-decoration:none; }
+
+.search-bar input {
+padding:6px;
+width:250px;
+}
+
+.hero {
+background:url('https://source.unsplash.com/1600x500/?shopping,ecommerce') no-repeat center/cover;
+color:white;
+text-align:center;
+padding:100px 20px;
+}
+
+.hero h1 { font-size:40px; }
+
+.category {
+padding:40px 20px;
+}
+
+.category h2 {
+margin-bottom:20px;
+}
+
+.product-grid {
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:20px;
+}
+
+.product {
+background:white;
+padding:15px;
+border-radius:8px;
+text-align:center;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.product img {
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:5px;
+}
+
+.product button {
+margin-top:10px;
+padding:8px;
+cursor:pointer;
+width:100%;
+}
+
+.qty {
+width:60px;
+margin-top:8px;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-<nav class="navbar">
+<header class="navbar">
 <div class="logo">NileOne</div>
 
-<input type="text" id="search" placeholder="Search..." onkeyup="searchProducts()">
+<div class="search-bar">
+<input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
+</div>
 
-<ul class="nav-links">
-<li><a href="#">Home</a></li>
-<li><a href="#products">Products</a></li>
-<li><a href="Login.html">Login</a></li>
-<li><a href="cart.html">Cart</a></li>
-<li><button onclick="toggleDarkMode()">🌙</button></li>
-<li class="cart-icon">🛒 <span id="cart-count">0</span></li>
-</ul>
-
+<nav>
+<a href="#electronics">Electronics</a>
+<a href="#apparel">Apparel</a>
+<a href="#grocery">Grocery</a>
+<a href="#sports">Sports</a>
+<a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
 </nav>
 </header>
 
 <section class="hero">
-<h1>Shop Smart. Shop NileOne.</h1>
-<p>Best Deals at Best Prices</p>
-<a href="#products" class="btn">Shop Now</a>
+<h1>Welcome to NileOne</h1>
+<p>Everything You Need. Best Prices Guaranteed.</p>
 </section>
 
-<section id="products" class="products">
-<h2>Featured Products</h2>
+<!-- ================= ELECTRONICS ================= -->
 
+<section id="electronics" class="category">
+<h2>Electronics</h2>
 <div class="product-grid">
 
-<!-- 1 -->
 <div class="product">
-<img src="https://picsum.photos/300?random=1">
-<h3>Wireless Earbuds</h3>
-<p>₹899</p>
-<button onclick="addToCart('Wireless Earbuds', 899)">Add to Cart</button>
+<img src="https://source.unsplash.com/300x300/?wireless,headphones">
+<h3>Wireless Headphones</h3>
+<p>₹1499</p>
+<input type="number" value="1" min="1" class="qty" id="qty1">
+<button onclick="openProduct(
+'Wireless Headphones',
+1499,
+'https://source.unsplash.com/600x600/?wireless,headphones',
+'Premium wireless headphones with deep bass and 20-hour battery life.'
+)">View Details</button>
 </div>
 
-<!-- 2 -->
 <div class="product">
-<img src="https://picsum.photos/300?random=2">
-<h3>Gaming Mouse</h3>
-<p>₹699</p>
-<button onclick="addToCart('Gaming Mouse', 699)">Add to Cart</button>
-</div>
-
-<!-- 3 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=3">
-<h3>Bluetooth Speaker</h3>
-<p>₹1299</p>
-<button onclick="addToCart('Bluetooth Speaker', 1299)">Add to Cart</button>
-</div>
-
-<!-- 4 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=4">
+<img src="https://source.unsplash.com/300x300/?smartwatch">
 <h3>Smart Watch</h3>
 <p>₹1999</p>
-<button onclick="addToCart('Smart Watch', 1999)">Add to Cart</button>
-</div>
-
-<!-- 5 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=5">
-<h3>LED Monitor</h3>
-<p>₹7499</p>
-<button onclick="addToCart('LED Monitor', 7499)">Add to Cart</button>
-</div>
-
-<!-- 6 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=6">
-<h3>Mechanical Keyboard</h3>
-<p>₹2499</p>
-<button onclick="addToCart('Mechanical Keyboard', 2499)">Add to Cart</button>
-</div>
-
-<!-- 7 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=7">
-<h3>Power Bank</h3>
-<p>₹999</p>
-<button onclick="addToCart('Power Bank', 999)">Add to Cart</button>
-</div>
-
-<!-- 8 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=8">
-<h3>Portable SSD</h3>
-<p>₹4999</p>
-<button onclick="addToCart('Portable SSD', 4999)">Add to Cart</button>
-</div>
-
-<!-- 9 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=9">
-<h3>VR Headset</h3>
-<p>₹2999</p>
-<button onclick="addToCart('VR Headset', 2999)">Add to Cart</button>
-</div>
-
-<!-- 10 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=10">
-<h3>DSLR Camera</h3>
-<p>₹25999</p>
-<button onclick="addToCart('DSLR Camera', 25999)">Add to Cart</button>
-</div>
-
-<!-- 11 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=11">
-<h3>Laptop Stand</h3>
-<p>₹599</p>
-<button onclick="addToCart('Laptop Stand', 599)">Add to Cart</button>
-</div>
-
-<!-- 12 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=12">
-<h3>Tablet</h3>
-<p>₹14999</p>
-<button onclick="addToCart('Tablet', 14999)">Add to Cart</button>
-</div>
-
-<!-- 13 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=13">
-<h3>Fitness Band</h3>
-<p>₹1299</p>
-<button onclick="addToCart('Fitness Band', 1299)">Add to Cart</button>
-</div>
-
-<!-- 14 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=14">
-<h3>Smartphone</h3>
-<p>₹18999</p>
-<button onclick="addToCart('Smartphone', 18999)">Add to Cart</button>
-</div>
-
-<!-- 15 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=15">
-<h3>USB Hub</h3>
-<p>₹499</p>
-<button onclick="addToCart('USB Hub', 499)">Add to Cart</button>
-</div>
-
-<!-- 16 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=16">
-<h3>External HDD</h3>
-<p>₹3999</p>
-<button onclick="addToCart('External HDD', 3999)">Add to Cart</button>
-</div>
-
-<!-- 17 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=17">
-<h3>Office Chair</h3>
-<p>₹6999</p>
-<button onclick="addToCart('Office Chair', 6999)">Add to Cart</button>
-</div>
-
-<!-- 18 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=18">
-<h3>Graphic Tablet</h3>
-<p>₹4599</p>
-<button onclick="addToCart('Graphic Tablet', 4599)">Add to Cart</button>
-</div>
-
-<!-- 19 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=19">
-<h3>Noise Cancelling Headphones</h3>
-<p>₹3499</p>
-<button onclick="addToCart('Noise Cancelling Headphones', 3499)">Add to Cart</button>
-</div>
-
-<!-- 20 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=20">
-<h3>Webcam</h3>
-<p>₹1299</p>
-<button onclick="addToCart('Webcam', 1299)">Add to Cart</button>
-</div>
-
-<!-- 21 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=21">
-<h3>Microphone</h3>
-<p>₹1799</p>
-<button onclick="addToCart('Microphone', 1799)">Add to Cart</button>
-</div>
-
-<!-- 22 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=22">
-<h3>Ring Light</h3>
-<p>₹899</p>
-<button onclick="addToCart('Ring Light', 899)">Add to Cart</button>
-</div>
-
-<!-- 23 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=23">
-<h3>Router</h3>
-<p>₹1499</p>
-<button onclick="addToCart('Router', 1499)">Add to Cart</button>
-</div>
-
-<!-- 24 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=24">
-<h3>Projector</h3>
-<p>₹8999</p>
-<button onclick="addToCart('Projector', 8999)">Add to Cart</button>
-</div>
-
-<!-- 25 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=25">
-<h3>Gaming Console</h3>
-<p>₹29999</p>
-<button onclick="addToCart('Gaming Console', 29999)">Add to Cart</button>
-</div>
-
-<!-- 26 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=26">
-<h3>Drone</h3>
-<p>₹15999</p>
-<button onclick="addToCart('Drone', 15999)">Add to Cart</button>
-</div>
-
-<!-- 27 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=27">
-<h3>Action Camera</h3>
-<p>₹7499</p>
-<button onclick="addToCart('Action Camera', 7499)">Add to Cart</button>
-</div>
-
-<!-- 28 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=28">
-<h3>Smart TV</h3>
-<p>₹35999</p>
-<button onclick="addToCart('Smart TV', 35999)">Add to Cart</button>
-</div>
-
-<!-- 29 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=29">
-<h3>Air Purifier</h3>
-<p>₹8999</p>
-<button onclick="addToCart('Air Purifier', 8999)">Add to Cart</button>
-</div>
-
-<!-- 30 -->
-<div class="product">
-<img src="https://picsum.photos/300?random=30">
-<h3>Smart Bulb</h3>
-<p>₹499</p>
-<button onclick="addToCart('Smart Bulb', 499)">Add to Cart</button>
+<input type="number" value="1" min="1" class="qty" id="qty2">
+<button onclick="openProduct(
+'Smart Watch',
+1999,
+'https://source.unsplash.com/600x600/?smartwatch',
+'Track fitness, heart rate and notifications.'
+)">View Details</button>
 </div>
 
 </div>
 </section>
 
-<footer>
-<p>© 2026 NileOne. All Rights Reserved.</p>
-</footer>
+<!-- ================= APPAREL ================= -->
+
+<section id="apparel" class="category">
+<h2>Apparel</h2>
+<div class="product-grid">
+
+<div class="product">
+<img src="https://source.unsplash.com/300x300/?tshirt">
+<h3>Casual T-Shirt</h3>
+<p>₹699</p>
+<input type="number" value="1" min="1" class="qty">
+<button onclick="openProduct(
+'Casual T-Shirt',
+699,
+'https://source.unsplash.com/600x600/?tshirt',
+'Comfortable cotton t-shirt.'
+)">View Details</button>
+</div>
+
+<div class="product">
+<img src="https://source.unsplash.com/300x300/?hoodie">
+<h3>Hoodie</h3>
+<p>₹1299</p>
+<input type="number" value="1" min="1" class="qty">
+<button onclick="openProduct(
+'Hoodie',
+1299,
+'https://source.unsplash.com/600x600/?hoodie',
+'Warm and cozy hoodie.'
+)">View Details</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= GROCERY ================= -->
+
+<section id="grocery" class="category">
+<h2>Grocery</h2>
+<div class="product-grid">
+
+<div class="product">
+<img src="https://source.unsplash.com/300x300/?rice">
+<h3>Basmati Rice</h3>
+<p>₹499</p>
+<input type="number" value="1" min="1" class="qty">
+<button onclick="openProduct(
+'Basmati Rice',
+499,
+'https://source.unsplash.com/600x600/?rice',
+'Premium long grain rice.'
+)">View Details</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= SPORTS ================= -->
+
+<section id="sports" class="category">
+<h2>Sports</h2>
+<div class="product-grid">
+
+<div class="product">
+<img src="https://source.unsplash.com/300x300/?football">
+<h3>Football</h3>
+<p>₹799</p>
+<input type="number" value="1" min="1" class="qty">
+<button onclick="openProduct(
+'Football',
+799,
+'https://source.unsplash.com/600x600/?football',
+'Professional quality football.'
+)">View Details</button>
+</div>
+
+</div>
+</section>
 
 </body>
-</html>
+  </html>
