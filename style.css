@@ -101,9 +101,32 @@ footer {
     padding: 20px;
     margin-top: 30px;
 }
-.dark {
-    background: #111;
+/* DARK MODE */
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .navbar {
+    background-color: #1f1f1f;
+}
+
+.dark-mode .product {
+    background-color: #1e1e1e;
     color: white;
+}
+
+.dark-mode .hero {
+    background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+}
+
+.dark-mode input,
+.dark-mode button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
 }
 
 .dark .product {
