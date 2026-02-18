@@ -10,7 +10,6 @@
 
 <body>
 
-<!-- HEADER -->
 <header>
 <nav class="navbar">
 <div class="logo">NileOne</div>
@@ -22,6 +21,8 @@
 <li><a href="#electronics">Electronics</a></li>
 <li><a href="#apparels">Apparels</a></li>
 <li><a href="#grocery">Grocery</a></li>
+<li><a href="#home">Home</a></li>
+<li><a href="#beauty">Beauty</a></li>
 <li><a href="Login.html">Login</a></li>
 <li><a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a></li>
 <li><button onclick="toggleDarkMode()">🌙</button></li>
@@ -29,10 +30,9 @@
 </nav>
 </header>
 
-<!-- HERO SECTION -->
 <section class="hero">
 <h1>Shop Smart. Shop NileOne.</h1>
-<p>Best Deals at Best Prices</p>
+<p>Everything You Need. Delivered Fast.</p>
 <a href="#electronics" class="btn">Shop Now</a>
 </section>
 
@@ -42,33 +42,35 @@
 <div class="product-grid">
 
 <div class="product">
-<a href="product.html?name=Wireless Headphones&price=1999&img=https://source.unsplash.com/300x300/?headphones">
-<img src="https://source.unsplash.com/300x300/?headphones">
+<img src="https://images.unsplash.com/photo-1518444028785-8c1f0d3f6d4d?auto=format&fit=crop&w=300&q=80">
 <h3>Wireless Headphones</h3>
-</a>
 <p>₹1999</p>
 <input type="number" min="1" value="1" class="qty">
 <button onclick="addToCart('Wireless Headphones',1999,this)">Add to Cart</button>
 </div>
 
 <div class="product">
-<a href="product.html?name=Laptop&price=59999&img=https://source.unsplash.com/300x300/?laptop">
-<img src="https://source.unsplash.com/300x300/?laptop">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=300&q=80">
 <h3>Laptop</h3>
-</a>
 <p>₹59999</p>
 <input type="number" min="1" value="1" class="qty">
 <button onclick="addToCart('Laptop',59999,this)">Add to Cart</button>
 </div>
 
 <div class="product">
-<a href="product.html?name=Smartphone&price=24999&img=https://source.unsplash.com/300x300/?smartphone">
-<img src="https://source.unsplash.com/300x300/?smartphone">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300&q=80">
 <h3>Smartphone</h3>
-</a>
 <p>₹24999</p>
 <input type="number" min="1" value="1" class="qty">
 <button onclick="addToCart('Smartphone',24999,this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585386959984-a4155223f7d8?auto=format&fit=crop&w=300&q=80">
+<h3>Bluetooth Speaker</h3>
+<p>₹2999</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Bluetooth Speaker',2999,this)">Add to Cart</button>
 </div>
 
 </div>
@@ -80,23 +82,27 @@
 <div class="product-grid">
 
 <div class="product">
-<a href="product.html?name=Men T-Shirt&price=799&img=https://source.unsplash.com/300x300/?tshirt">
-<img src="https://source.unsplash.com/300x300/?tshirt">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=300&q=80">
 <h3>Men T-Shirt</h3>
-</a>
 <p>₹799</p>
 <input type="number" min="1" value="1" class="qty">
 <button onclick="addToCart('Men T-Shirt',799,this)">Add to Cart</button>
 </div>
 
 <div class="product">
-<a href="product.html?name=Women Dress&price=1499&img=https://source.unsplash.com/300x300/?dress">
-<img src="https://source.unsplash.com/300x300/?dress">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=300&q=80">
 <h3>Women Dress</h3>
-</a>
 <p>₹1499</p>
 <input type="number" min="1" value="1" class="qty">
 <button onclick="addToCart('Women Dress',1499,this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542060748-10c28b62716b?auto=format&fit=crop&w=300&q=80">
+<h3>Running Shoes</h3>
+<p>₹2999</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Running Shoes',2999,this)">Add to Cart</button>
 </div>
 
 </div>
@@ -108,23 +114,75 @@
 <div class="product-grid">
 
 <div class="product">
-<a href="product.html?name=Basmati Rice&price=899&img=https://source.unsplash.com/300x300/?rice">
-<img src="https://source.unsplash.com/300x300/?rice">
+<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80">
 <h3>Basmati Rice (5kg)</h3>
-</a>
 <p>₹899</p>
 <input type="number" min="1" value="1" class="qty">
 <button onclick="addToCart('Basmati Rice',899,this)">Add to Cart</button>
 </div>
 
 <div class="product">
-<a href="product.html?name=Fresh Apples&price=199&img=https://source.unsplash.com/300x300/?apples">
-<img src="https://source.unsplash.com/300x300/?apples">
+<img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=300&q=80">
 <h3>Fresh Apples (1kg)</h3>
-</a>
 <p>₹199</p>
 <input type="number" min="1" value="1" class="qty">
 <button onclick="addToCart('Fresh Apples',199,this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1589307004390-4d9a4f8e9a06?auto=format&fit=crop&w=300&q=80">
+<h3>Cooking Oil (1L)</h3>
+<p>₹149</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Cooking Oil',149,this)">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<!-- HOME ESSENTIALS -->
+<section id="home" class="products">
+<h2>Home Essentials</h2>
+<div class="product-grid">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1582582494700-6b5b6e5a6f7b?auto=format&fit=crop&w=300&q=80">
+<h3>Table Lamp</h3>
+<p>₹1299</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Table Lamp',1299,this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1616627986317-6c9a45a1f9c0?auto=format&fit=crop&w=300&q=80">
+<h3>Wall Clock</h3>
+<p>₹799</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Wall Clock',799,this)">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<!-- BEAUTY -->
+<section id="beauty" class="products">
+<h2>Beauty & Personal Care</h2>
+<div class="product-grid">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=300&q=80">
+<h3>Face Cream</h3>
+<p>₹499</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Face Cream',499,this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=300&q=80">
+<h3>Shampoo</h3>
+<p>₹349</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Shampoo',349,this)">Add to Cart</button>
 </div>
 
 </div>
@@ -135,4 +193,4 @@
 </footer>
 
 </body>
-</html>
+  </html>
