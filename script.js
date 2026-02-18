@@ -1,63 +1,137 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+// ==========================
+// UPDATE CART COUNT
+// ==========================
 function updateCartCount() {
-    let count = document.getElementById("cart-count");
-    if (count) {
-        count.innerText = cart.length;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let countElement = document.getElementById("cart-count");
+    if (countElement) {
+        countElement.innerText = cart.length;
     }
 }
 
-function addToCart(name, price) {
-    cart.push({ name, price });
+
+// ==========================
+// ADD TO CART
+// ==========================
+function addToCart(name, price, button) {
+
+    let quantity = 1;
+
+    // If quantity selector exists
+    let qtyInput = button.parentElement.querySelector(".qty");
+    if (qtyInput) {
+        quantity = parseInt(qtyInput.value);
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if product already exists
+    let existingProduct = cart.find(item => item.name === name);
+
+    if (existingProduct) {
+        existingProduct.quantity += quantity;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: quantity
+        });
+    }
+
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartCount();
-    alert(name + " added to cart");
+
+    alert(name + " added to cart!");
 }
 
+
+// ==========================
+// LOAD CART PAGE
+// ==========================
 function loadCart() {
+
     let container = document.getElementById("cart-items");
-    let total = 0;
+    let totalElement = document.getElementById("total-price");
 
     if (!container) return;
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = 0;
 
     container.innerHTML = "";
 
     cart.forEach((item, index) => {
-        total += item.price;
+
+        total += item.price * item.quantity;
 
         container.innerHTML += `
             <div class="cart-item">
-                <p>${item.name} - ₹${item.price}</p>
+                <p><strong>${item.name}</strong></p>
+                <p>₹${item.price} x ${item.quantity}</p>
                 <button onclick="removeItem(${index})">Remove</button>
             </div>
         `;
     });
 
-    document.getElementById("total-price").innerText = total;
+    if (totalElement) {
+        totalElement.innerText = total;
+    }
 }
 
+
+// ==========================
+// REMOVE ITEM
+// ==========================
 function removeItem(index) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
     cart.splice(index, 1);
+
     localStorage.setItem("cart", JSON.stringify(cart));
+
     loadCart();
     updateCartCount();
 }
 
+
+// ==========================
+// SEARCH PRODUCTS
+// ==========================
 function searchProducts() {
+
     let input = document.getElementById("search");
     if (!input) return;
 
-    let value = input.value.toLowerCase();
+    let filter = input.value.toLowerCase();
     let products = document.querySelectorAll(".product");
 
-    products.forEach(p => {
-        let name = p.querySelector("h3").innerText.toLowerCase();
-        p.style.display = name.includes(value) ? "block" : "none";
+    products.forEach(product => {
+
+        let title = product.querySelector("h3").innerText.toLowerCase();
+
+        if (title.includes(filter)) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+
     });
 }
 
+
+// ==========================
+// DARK MODE
+// ==========================
 function toggleDarkMode() {
-    document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark-mode");
 }
 
-updateCartCount();
+
+// ==========================
+// AUTO RUN WHEN PAGE LOADS
+// ==========================
+document.addEventListener("DOMContentLoaded", function () {
+    updateCartCount();
+    loadCart();
+});
