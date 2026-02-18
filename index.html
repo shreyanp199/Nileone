@@ -1,218 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>NileOne - Shop Smart</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NileOne - Online Store</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
-
-<style>
-body { font-family: Arial; margin:0; background:#f3f3f3; }
-
-.navbar {
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#131921;
-color:white;
-padding:10px 20px;
-}
-
-.navbar a { color:white; margin:0 10px; text-decoration:none; }
-
-.search-bar input {
-padding:6px;
-width:250px;
-}
-
-.hero {
-background:url('https://source.unsplash.com/1600x500/?shopping,ecommerce') no-repeat center/cover;
-color:white;
-text-align:center;
-padding:100px 20px;
-}
-
-.hero h1 { font-size:40px; }
-
-.category {
-padding:40px 20px;
-}
-
-.category h2 {
-margin-bottom:20px;
-}
-
-.product-grid {
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:20px;
-}
-
-.product {
-background:white;
-padding:15px;
-border-radius:8px;
-text-align:center;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
-
-.product img {
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:5px;
-}
-
-.product button {
-margin-top:10px;
-padding:8px;
-cursor:pointer;
-width:100%;
-}
-
-.qty {
-width:60px;
-margin-top:8px;
-}
-</style>
 </head>
 
 <body>
 
-<header class="navbar">
+<!-- HEADER -->
+<header>
+<nav class="navbar">
 <div class="logo">NileOne</div>
 
-<div class="search-bar">
 <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
-</div>
 
-<nav>
-<a href="#electronics">Electronics</a>
-<a href="#apparel">Apparel</a>
-<a href="#grocery">Grocery</a>
-<a href="#sports">Sports</a>
-<a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+<ul class="nav-links">
+<li><a href="#">Home</a></li>
+<li><a href="#electronics">Electronics</a></li>
+<li><a href="#apparels">Apparels</a></li>
+<li><a href="#grocery">Grocery</a></li>
+<li><a href="Login.html">Login</a></li>
+<li><a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a></li>
+<li><button onclick="toggleDarkMode()">🌙</button></li>
+</ul>
 </nav>
 </header>
 
+<!-- HERO SECTION -->
 <section class="hero">
-<h1>Welcome to NileOne</h1>
-<p>Everything You Need. Best Prices Guaranteed.</p>
+<h1>Shop Smart. Shop NileOne.</h1>
+<p>Best Deals at Best Prices</p>
+<a href="#electronics" class="btn">Shop Now</a>
 </section>
 
-<!-- ================= ELECTRONICS ================= -->
-
-<section id="electronics" class="category">
+<!-- ELECTRONICS -->
+<section id="electronics" class="products">
 <h2>Electronics</h2>
 <div class="product-grid">
 
 <div class="product">
-<img src="https://source.unsplash.com/300x300/?wireless,headphones">
+<a href="product.html?name=Wireless Headphones&price=1999&img=https://source.unsplash.com/300x300/?headphones">
+<img src="https://source.unsplash.com/300x300/?headphones">
 <h3>Wireless Headphones</h3>
-<p>₹1499</p>
-<input type="number" value="1" min="1" class="qty" id="qty1">
-<button onclick="openProduct(
-'Wireless Headphones',
-1499,
-'https://source.unsplash.com/600x600/?wireless,headphones',
-'Premium wireless headphones with deep bass and 20-hour battery life.'
-)">View Details</button>
+</a>
+<p>₹1999</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Wireless Headphones',1999,this)">Add to Cart</button>
 </div>
 
 <div class="product">
-<img src="https://source.unsplash.com/300x300/?smartwatch">
-<h3>Smart Watch</h3>
-<p>₹1999</p>
-<input type="number" value="1" min="1" class="qty" id="qty2">
-<button onclick="openProduct(
-'Smart Watch',
-1999,
-'https://source.unsplash.com/600x600/?smartwatch',
-'Track fitness, heart rate and notifications.'
-)">View Details</button>
+<a href="product.html?name=Laptop&price=59999&img=https://source.unsplash.com/300x300/?laptop">
+<img src="https://source.unsplash.com/300x300/?laptop">
+<h3>Laptop</h3>
+</a>
+<p>₹59999</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Laptop',59999,this)">Add to Cart</button>
+</div>
+
+<div class="product">
+<a href="product.html?name=Smartphone&price=24999&img=https://source.unsplash.com/300x300/?smartphone">
+<img src="https://source.unsplash.com/300x300/?smartphone">
+<h3>Smartphone</h3>
+</a>
+<p>₹24999</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Smartphone',24999,this)">Add to Cart</button>
 </div>
 
 </div>
 </section>
 
-<!-- ================= APPAREL ================= -->
-
-<section id="apparel" class="category">
-<h2>Apparel</h2>
+<!-- APPARELS -->
+<section id="apparels" class="products">
+<h2>Apparels</h2>
 <div class="product-grid">
 
 <div class="product">
+<a href="product.html?name=Men T-Shirt&price=799&img=https://source.unsplash.com/300x300/?tshirt">
 <img src="https://source.unsplash.com/300x300/?tshirt">
-<h3>Casual T-Shirt</h3>
-<p>₹699</p>
-<input type="number" value="1" min="1" class="qty">
-<button onclick="openProduct(
-'Casual T-Shirt',
-699,
-'https://source.unsplash.com/600x600/?tshirt',
-'Comfortable cotton t-shirt.'
-)">View Details</button>
+<h3>Men T-Shirt</h3>
+</a>
+<p>₹799</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Men T-Shirt',799,this)">Add to Cart</button>
 </div>
 
 <div class="product">
-<img src="https://source.unsplash.com/300x300/?hoodie">
-<h3>Hoodie</h3>
-<p>₹1299</p>
-<input type="number" value="1" min="1" class="qty">
-<button onclick="openProduct(
-'Hoodie',
-1299,
-'https://source.unsplash.com/600x600/?hoodie',
-'Warm and cozy hoodie.'
-)">View Details</button>
+<a href="product.html?name=Women Dress&price=1499&img=https://source.unsplash.com/300x300/?dress">
+<img src="https://source.unsplash.com/300x300/?dress">
+<h3>Women Dress</h3>
+</a>
+<p>₹1499</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Women Dress',1499,this)">Add to Cart</button>
 </div>
 
 </div>
 </section>
 
-<!-- ================= GROCERY ================= -->
-
-<section id="grocery" class="category">
+<!-- GROCERY -->
+<section id="grocery" class="products">
 <h2>Grocery</h2>
 <div class="product-grid">
 
 <div class="product">
+<a href="product.html?name=Basmati Rice&price=899&img=https://source.unsplash.com/300x300/?rice">
 <img src="https://source.unsplash.com/300x300/?rice">
-<h3>Basmati Rice</h3>
-<p>₹499</p>
-<input type="number" value="1" min="1" class="qty">
-<button onclick="openProduct(
-'Basmati Rice',
-499,
-'https://source.unsplash.com/600x600/?rice',
-'Premium long grain rice.'
-)">View Details</button>
+<h3>Basmati Rice (5kg)</h3>
+</a>
+<p>₹899</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Basmati Rice',899,this)">Add to Cart</button>
 </div>
-
-</div>
-</section>
-
-<!-- ================= SPORTS ================= -->
-
-<section id="sports" class="category">
-<h2>Sports</h2>
-<div class="product-grid">
 
 <div class="product">
-<img src="https://source.unsplash.com/300x300/?football">
-<h3>Football</h3>
-<p>₹799</p>
-<input type="number" value="1" min="1" class="qty">
-<button onclick="openProduct(
-'Football',
-799,
-'https://source.unsplash.com/600x600/?football',
-'Professional quality football.'
-)">View Details</button>
+<a href="product.html?name=Fresh Apples&price=199&img=https://source.unsplash.com/300x300/?apples">
+<img src="https://source.unsplash.com/300x300/?apples">
+<h3>Fresh Apples (1kg)</h3>
+</a>
+<p>₹199</p>
+<input type="number" min="1" value="1" class="qty">
+<button onclick="addToCart('Fresh Apples',199,this)">Add to Cart</button>
 </div>
 
 </div>
 </section>
 
+<footer>
+<p>© 2026 NileOne. All Rights Reserved.</p>
+</footer>
+
 </body>
-  </html>
+</html>
