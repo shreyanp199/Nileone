@@ -62,12 +62,9 @@ body {
 .products {
     padding: 50px 20px;
     text-align: center;
-}
 
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
