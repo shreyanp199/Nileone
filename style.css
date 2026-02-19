@@ -64,11 +64,11 @@ body {
     text-align: center;
 }
 
-.product-grid {
+.products {
     display: flex;
-    gap: 20px;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .product {
